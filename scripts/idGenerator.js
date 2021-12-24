@@ -8,16 +8,31 @@ function idGenerator(prefix, length) {
   return result;
 }
 
-function userIdGenerator(length) {
-  return idGenerator("USER", 7);
+async function userIdGenerator() {
+  const User = require("../models/user");
+
+  let idExists = true;
+  let attempts = 0;
+
+  while (idExists && attempts <= 20) {
+    attempts += 1;
+    const newUserId = idGenerator("USER", 7);
+    const response = await User.find({ userId: newUserId });
+    if (response.length === 0) {
+      idExists = false;
+      return newUserId;
+    }
+  }
+
+  return null;
 }
 
-function customerIdGenerator(length) {
+function customerIdGenerator() {
   return idGenerator("CUS", 10);
 }
 
-function transactionIdGenerator(length) {
-  return idGenerator("USER", 13);
+function transactionIdGenerator() {
+  return idGenerator("TRAN", 13);
 }
 
 module.exports = {

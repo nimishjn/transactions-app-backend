@@ -1,9 +1,13 @@
 const error_codes = {
   E0: "Undefined error occured",
+  E1: "Error with database",
+  E2: "Password hashing issue",
+  E3: "Unique Id generation issue"
 };
 
 const logical_errors = {
-  L0: "Incorrect password",
+  L0: "Mail exists",
+  L1: "Password validation failed"
 };
 
 const success_codes = {

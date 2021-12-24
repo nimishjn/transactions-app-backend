@@ -9,6 +9,8 @@ require("./models/dbInit");
 const cors = require("cors");
 app.use(cors());
 
+// require("./scripts/codeTester");
+
 app.set("trust proxy", true);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -16,8 +18,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // const authMiddleware = require('./middleware/authorize');
 
-// const loginRoute = require("./routes/login");
-// app.use("/login", loginRoute);
+// Signup route
+const signupRoute = require("./routes/signup");
+app.use("/signup", signupRoute);
 
 app.use((error, req, res, next) => {
   res.status(error.status || 500);
