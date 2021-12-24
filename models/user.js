@@ -25,7 +25,6 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true,
         match: /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{4,15}$/
-
     },
     verified: {
         type: Boolean,
