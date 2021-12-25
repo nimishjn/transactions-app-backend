@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const hashPassword = require("../scripts/hashPassword");
 const { userIdGenerator } = require("../scripts/idGenerator");
-const generateAccessToken = require("../scripts/JWTGenerator");
+const { sendVerificationEmail } = require("../scripts/emailVerification");
 
 const User = require("../models/user");
 
@@ -59,14 +59,20 @@ router.post("/", (req, res) => {
 
         newUser
           .save()
-          .then((result) => {
-            const accessToken = generateAccessToken({
-              username: userData.email,
-            });
+          .then(async (result) => {
+            const emailSent = await sendVerificationEmail(
+              userData.email,
+              req.headers.host
+            );
 
-            res.status(201).json({
-              code: "S0",
-              token: accessToken,
+            if (!emailSent) {
+              return res.status(201).json({
+                code: "S0",
+              });
+            }
+
+            return res.status(201).json({
+              code: "S1",
             });
           })
           .catch((err) => {

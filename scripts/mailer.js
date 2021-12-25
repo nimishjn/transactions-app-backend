@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 
-function mailer(mailTo, mailSubject, mailContent) {
+async function mailer(mailTo, mailSubject, mailContent) {
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
@@ -19,8 +19,10 @@ function mailer(mailTo, mailSubject, mailContent) {
   transporter.sendMail(mailOptions, function (err, data) {
     if (err) {
       console.log("! mailer.js - Error sending email to " + mailTo + err);
+      return null;
     } else {
       console.log("> mailer.js - Email sent successfully to " + mailTo);
+      return true;
     }
   });
 }

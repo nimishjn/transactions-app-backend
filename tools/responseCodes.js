@@ -11,8 +11,9 @@ const logical_errors = {
 };
 
 const success_codes = {
-  S0: "Signup successful",
-  S1: "Login successful",
+  S0: "Signup successful, email verification sent",
+  S1: "Signup successful, email verification failed",
+  S2: "Login successful",
 };
 
 export default { error_codes, logical_errors, success_codes };
