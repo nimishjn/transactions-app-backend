@@ -7,13 +7,17 @@ const error_codes = {
 };
 
 const logical_errors = {
-  L0: "Mail exists",
-  L1: "Password validation failed"
+  L0: "Email exists",
+  L1: "Password validation failed",
+  L3: "Email not registered",
+  L4: "Email not verified, email verification sent",
+  L5: "Email not verified, email verification failed to send",
+  L6: "Incorrect Password",
 };
 
 const success_codes = {
   S0: "Signup successful, email verification sent",
-  S1: "Signup successful, email verification failed",
+  S1: "Signup successful, email verification failed to send",
   S2: "Login successful",
 };
 

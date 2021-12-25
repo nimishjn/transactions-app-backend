@@ -26,6 +26,10 @@ app.use("/signup", signupRoute);
 const verifyEmailRoute = require("./routes/verifyEmail");
 app.use("/verifyEmail", verifyEmailRoute);
 
+// Login route
+const loginRoute = require("./routes/login");
+app.use("/login", loginRoute);
+
 app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({
