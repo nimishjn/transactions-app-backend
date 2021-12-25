@@ -22,6 +22,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 const signupRoute = require("./routes/signup");
 app.use("/signup", signupRoute);
 
+// Verify email route
+const verifyEmailRoute = require("./routes/verifyEmail");
+app.use("/verifyEmail", verifyEmailRoute);
+
 app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({

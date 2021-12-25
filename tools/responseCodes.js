@@ -2,7 +2,8 @@ const error_codes = {
   E0: "Undefined error occured",
   E1: "Error with database",
   E2: "Password hashing issue",
-  E3: "Unique Id generation issue"
+  E3: "Unique Id generation issue",
+  E4: "Token Invalid"
 };
 
 const logical_errors = {

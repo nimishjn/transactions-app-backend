@@ -10,7 +10,7 @@ async function sendVerificationEmail(emailId, host) {
     Hello user,
 
     Greetings from XYZ Company. Please verify your email id (${emailId}) by clicking the link below.
-    http://${host}/confirmEmail/${verificationToken}
+    http://${host}/verifyEmail/${verificationToken}
 
     Regards,
     Developers Hub
