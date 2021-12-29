@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// const authMiddleware = require('./middleware/authorize');
+const authMiddleware = require('./middleware/authorize');
 
 // Signup route
 const signupRoute = require("./routes/signup");
@@ -30,12 +30,15 @@ app.use("/verifyEmail", verifyEmailRoute);
 const loginRoute = require("./routes/login");
 app.use("/login", loginRoute);
 
+// Add customer route
+const addCustomerRoute = require("./routes/addCustomer");
+app.use("/customer/add", authMiddleware, addCustomerRoute);
+
 app.use((error, req, res, next) => {
+  console.log("! app.js - Server error ", error);
   res.status(error.status || 500);
   res.json({
-    error: {
-      message: error.message
-    },
+    code: "E0",
   });
 });
 

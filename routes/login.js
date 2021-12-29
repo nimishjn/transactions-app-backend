@@ -9,7 +9,7 @@ const User = require("../models/user");
 
 router.post("/", (req, res) => {
   const userData = {
-    email: req.body.email,
+    email: req.body.email.trim(),
     password: req.body.password,
   };
 

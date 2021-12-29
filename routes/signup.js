@@ -8,11 +8,11 @@ const User = require("../models/user");
 
 router.post("/", (req, res) => {
   const userData = {
-    name: req.body.name,
-    email: req.body.email,
+    name: req.body.name.trim(),
+    email: req.body.email.trim(),
     password: req.body.password,
-    mobile: req.body.mobile,
-    businessName: req.body.businessName,
+    mobile: req.body.mobile.trim(),
+    businessName: req.body.businessName.trim(),
   };
 
   User.find({ email: userData.email })
@@ -76,7 +76,7 @@ router.post("/", (req, res) => {
             });
           })
           .catch((err) => {
-            console.log(err);
+            console.log("!signup.js - Error ", err);
             res.status(500).json({
               code: "E1",
             });
