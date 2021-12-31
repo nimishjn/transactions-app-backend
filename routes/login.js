@@ -71,7 +71,6 @@ router.post("/", (req, res) => {
       console.log("!login.js - Error ", err);
       return res.status(500).json({
         code: "E1",
-        test: "test",
       });
     });
 });

@@ -9,7 +9,6 @@ router.get("/", (req, res) => {
       const response = customers.map((element) => {
         return {
           customerId: element.customerId,
-          userEmail: element.userEmail,
           name: element.name,
           mobile: element.mobile,
         };

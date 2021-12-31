@@ -15,6 +15,7 @@ const logical_errors = {
   L5: "Email not verified, email verification failed to send",
   L6: "Incorrect Password",
   L7: "Customer already exist",
+  L8: "Customer not found",
 };
 
 const success_codes = {
@@ -22,6 +23,7 @@ const success_codes = {
   S1: "Signup successful, email verification failed to send",
   S2: "Login successful",
   S3: "New customer added",
+  S4: "Customer deleted"
 };
 
 export default { error_codes, logical_errors, success_codes };
