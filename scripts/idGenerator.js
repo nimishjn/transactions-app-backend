@@ -17,7 +17,9 @@ async function userIdGenerator() {
   while (idExists && attempts <= 20) {
     attempts += 1;
     const newUserId = idGenerator("USER", 7);
-    const response = await User.find({ userId: newUserId });
+    const response = await User.find({
+      userId: newUserId
+    });
     if (response.length === 0) {
       idExists = false;
       return newUserId;
@@ -27,8 +29,25 @@ async function userIdGenerator() {
   return null;
 }
 
-function customerIdGenerator() {
-  return idGenerator("CUS", 10);
+async function customerIdGenerator() {
+  const Customer = require("../models/customer");
+
+  let idExists = true;
+  let attempts = 0;
+
+  while (idExists && attempts <= 20) {
+    attempts += 1;
+    const newCustomerId = idGenerator("CUS", 10);
+    const response = await Customer.find({
+      customerId: newCustomerId
+    });
+    if (response.length === 0) {
+      idExists = false;
+      return newCustomerId;
+    }
+  }
+
+  return null;
 }
 
 function transactionIdGenerator() {
