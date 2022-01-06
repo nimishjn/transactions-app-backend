@@ -42,6 +42,10 @@ app.use("/customer/all", authMiddleware, listCustomersRoute);
 const removeCustomerRoute = require("./routes/removeCustomer");
 app.use("/customer/remove", authMiddleware, removeCustomerRoute);
 
+// Edit customer route
+const editCustomerRoute = require("./routes/editCustomer");
+app.use("/customer/edit", authMiddleware, editCustomerRoute);
+
 app.use((error, req, res, next) => {
   console.log("! app.js - Server error ", error);
   res.status(error.status || 500);

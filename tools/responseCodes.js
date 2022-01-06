@@ -23,7 +23,8 @@ const success_codes = {
   S1: "Signup successful, email verification failed to send",
   S2: "Login successful",
   S3: "New customer added",
-  S4: "Customer deleted"
+  S4: "Customer deleted",
+  S5: "Customer updated",
 };
 
 export default { error_codes, logical_errors, success_codes };
