@@ -50,6 +50,10 @@ app.use("/customer/edit", authMiddleware, editCustomerRoute);
 const addTransactionRoute = require("./routes/addTransaction");
 app.use("/transaction/add", authMiddleware, addTransactionRoute);
 
+// List all customers route
+const listTransactionsRoute = require("./routes/listTransactions");
+app.use("/transaction/all", authMiddleware, listTransactionsRoute);
+
 // Edit transactions route
 const editTransactionRoute = require("./routes/editTransaction");
 app.use("/transaction/edit", authMiddleware, editTransactionRoute);
