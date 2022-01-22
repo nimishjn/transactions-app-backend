@@ -47,8 +47,12 @@ const editCustomerRoute = require("./routes/editCustomer");
 app.use("/customer/edit", authMiddleware, editCustomerRoute);
 
 // Add transactions route
-const addTransactionRoute = require("./routes/addTransactions");
+const addTransactionRoute = require("./routes/addTransaction");
 app.use("/transaction/add", authMiddleware, addTransactionRoute);
+
+// Edit transactions route
+const editTransactionRoute = require("./routes/editTransaction");
+app.use("/transaction/edit", authMiddleware, editTransactionRoute);
 
 app.use((error, req, res, next) => {
   console.log("! app.js - Server error ", error);

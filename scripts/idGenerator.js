@@ -51,7 +51,7 @@ async function customerIdGenerator() {
 }
 
 async function transactionIdGenerator() {
-  const Transactions = require("../models/transactions");
+  const Transaction = require("../models/transaction");
 
   let idExists = true;
   let attempts = 0;
@@ -59,7 +59,7 @@ async function transactionIdGenerator() {
   while (idExists && attempts <= 20) {
     attempts += 1;
     const newTransactionId = idGenerator("TRAN", 13);
-    const response = await Transactions.find({
+    const response = await Transaction.find({
       transactionId: newTransactionId
     });
     if (response.length === 0) {

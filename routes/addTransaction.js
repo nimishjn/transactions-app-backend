@@ -7,7 +7,7 @@ const {
 } = require("../scripts/idGenerator");
 
 const Customer = require("../models/customer");
-const Transaction = require("../models/transactions");
+const Transaction = require("../models/transaction");
 
 router.post("/", (req, res) => {
   const transactionDetails = {
