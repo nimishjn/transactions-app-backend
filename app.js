@@ -54,6 +54,10 @@ app.use("/transaction/add", authMiddleware, addTransactionRoute);
 const listTransactionsRoute = require("./routes/listTransactions");
 app.use("/transaction/all", authMiddleware, listTransactionsRoute);
 
+// Remove customer route
+const removeTransactionRoute = require("./routes/removeTransaction");
+app.use("/transaction/remove", authMiddleware, removeTransactionRoute);
+
 // Edit transactions route
 const editTransactionRoute = require("./routes/editTransaction");
 app.use("/transaction/edit", authMiddleware, editTransactionRoute);

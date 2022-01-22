@@ -27,6 +27,7 @@ const success_codes = {
   S4: "Customer deleted",
   S5: "Customer updated",
   S6: "New transaction added",
+  S7: "Transaction deleted",
   S8: "Transaction updated",
 };
 
