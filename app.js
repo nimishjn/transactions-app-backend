@@ -46,6 +46,22 @@ app.use("/customer/remove", authMiddleware, removeCustomerRoute);
 const editCustomerRoute = require("./routes/editCustomer");
 app.use("/customer/edit", authMiddleware, editCustomerRoute);
 
+// Add transactions route
+const addTransactionRoute = require("./routes/addTransaction");
+app.use("/transaction/add", authMiddleware, addTransactionRoute);
+
+// List all customers route
+const listTransactionsRoute = require("./routes/listTransactions");
+app.use("/transaction/all", authMiddleware, listTransactionsRoute);
+
+// Remove customer route
+const removeTransactionRoute = require("./routes/removeTransaction");
+app.use("/transaction/remove", authMiddleware, removeTransactionRoute);
+
+// Edit transactions route
+const editTransactionRoute = require("./routes/editTransaction");
+app.use("/transaction/edit", authMiddleware, editTransactionRoute);
+
 app.use((error, req, res, next) => {
   console.log("! app.js - Server error ", error);
   res.status(error.status || 500);

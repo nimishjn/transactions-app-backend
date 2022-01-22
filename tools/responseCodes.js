@@ -16,6 +16,7 @@ const logical_errors = {
   L6: "Incorrect Password",
   L7: "Customer already exist",
   L8: "Customer not found",
+  L9: "Transaction not found",
 };
 
 const success_codes = {
@@ -25,6 +26,9 @@ const success_codes = {
   S3: "New customer added",
   S4: "Customer deleted",
   S5: "Customer updated",
+  S6: "New transaction added",
+  S7: "Transaction deleted",
+  S8: "Transaction updated",
 };
 
 export default { error_codes, logical_errors, success_codes };
