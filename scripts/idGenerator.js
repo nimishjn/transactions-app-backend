@@ -50,8 +50,25 @@ async function customerIdGenerator() {
   return null;
 }
 
-function transactionIdGenerator() {
-  return idGenerator("TRAN", 13);
+async function transactionIdGenerator() {
+  const Transactions = require("../models/transactions");
+
+  let idExists = true;
+  let attempts = 0;
+
+  while (idExists && attempts <= 20) {
+    attempts += 1;
+    const newTransactionId = idGenerator("TRAN", 13);
+    const response = await Transactions.find({
+      transactionId: newTransactionId
+    });
+    if (response.length === 0) {
+      idExists = false;
+      return newTransactionId;
+    }
+  }
+
+  return null;
 }
 
 module.exports = {

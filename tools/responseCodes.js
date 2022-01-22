@@ -25,6 +25,7 @@ const success_codes = {
   S3: "New customer added",
   S4: "Customer deleted",
   S5: "Customer updated",
+  S6: "New transaction added",
 };
 
 export default { error_codes, logical_errors, success_codes };
