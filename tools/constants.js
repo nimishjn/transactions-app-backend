@@ -1,6 +1,6 @@
 // Credits: https://stackoverflow.com/a/21456918/17538574
 const passwordValidationRegex =
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,10}$/;
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,16}$/;
 
 // Credits: https://stackoverflow.com/a/8829363/17538574
 const emailValidationRegex =

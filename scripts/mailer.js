@@ -16,15 +16,16 @@ async function mailer(mailTo, mailSubject, mailContent) {
     text: mailContent,
   };
 
-  transporter.sendMail(mailOptions, function (err, data) {
-    if (err) {
-      console.log("! mailer.js - Error sending email to " + mailTo + err);
-      return null;
-    } else {
+  return transporter
+    .sendMail(mailOptions)
+    .then((data) => {
       console.log("> mailer.js - Email sent successfully to " + mailTo);
       return true;
-    }
-  });
+    })
+    .catch((error) => {
+      console.log("! mailer.js - Error sending email to " + mailTo + err);
+      return false;
+    });
 }
 
 module.exports = mailer;

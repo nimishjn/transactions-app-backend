@@ -27,6 +27,7 @@ router.post("/", (req, res) => {
           userData.email,
           req.headers.host
         );
+        
         if (emailSent) {
           return res.status(401).json({
             code: "L4",
